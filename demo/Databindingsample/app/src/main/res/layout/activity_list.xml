@@ -1,0 +1,33 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+
+        <variable
+            name="presenter"
+            type="com.databindingsample.wim.databindingsample.ListActivity.Presenter"
+            ></variable>
+
+    </data>
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:onClick="@{presenter.OnClickAddItem}"
+    android:text="@string/demo_list_add_item"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{presenter.onClickRemoveItem}"
+        android:text="@string/demo_list_remove_item"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>
+</layout>

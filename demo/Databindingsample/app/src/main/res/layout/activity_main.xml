@@ -1,0 +1,45 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+        <data>
+            <variable
+                name="presenter"
+                type="com.databindingsample.wim.databindingsample.MainActivity.Presenter">
+            </variable>
+        </data>
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:text="simple"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{presenter.onClick}"
+        android:id="@+id/btn_simple" />
+
+    <Button
+        android:onClick="@{presenter.onClick}"
+        android:text="list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_list" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button3" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button4" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button5" />
+</LinearLayout>
+</layout>
