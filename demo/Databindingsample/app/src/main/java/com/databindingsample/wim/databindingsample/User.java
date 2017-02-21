@@ -17,6 +17,8 @@ public class User  extends BaseObservable{
     private  String lastName;
     private String displayName;
 
+    private String avatar;
+
     public ObservableArrayMap<String, String> user = new ObservableArrayMap<>();
     public ObservableBoolean isAdult=new ObservableBoolean();
 
@@ -29,6 +31,8 @@ public class User  extends BaseObservable{
         user.put("key3","value3");
 
     }
+
+
 
     public void setFirstName(String firstName){
         this.firstName = firstName;
@@ -58,4 +62,11 @@ public class User  extends BaseObservable{
 //        notifyChange();
     }
 
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
 }

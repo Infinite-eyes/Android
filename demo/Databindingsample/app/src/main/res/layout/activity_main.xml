@@ -25,16 +25,18 @@
         android:id="@+id/btn_list" />
 
     <Button
-        android:text="Button"
+        android:text="expression"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button3" />
+        android:onClick="@{presenter.onClick}"
+        android:id="@+id/btn_expression" />
 
     <Button
-        android:text="Button"
+        android:text="TwoWay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button4" />
+        android:onClick="@{presenter.onClick}"
+        android:id="@+id/btn_twoway" />
 
     <Button
         android:text="Button"

@@ -33,6 +33,16 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.btn_list:
                     intent  = new Intent(MainActivity.this,ListActivity.class);
                     startActivity(intent);
+                    break;
+                case R.id.btn_expression:
+                    intent  = new Intent(MainActivity.this,ExpressionActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.btn_twoway:
+                    intent  = new Intent(MainActivity.this,TwoWayActivity.class);
+                    startActivity(intent);
+                    break;
+
             }
         }
 
