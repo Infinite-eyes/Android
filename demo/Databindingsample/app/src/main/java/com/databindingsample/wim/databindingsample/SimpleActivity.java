@@ -30,7 +30,7 @@ public class SimpleActivity extends AppCompatActivity {
     public class Presenter{
         public  void onTextChanged(CharSequence s, int start, int before, int count){
             user.setFirstName(s.toString());
-            user.setFired(!user.isAdult.get());
+            user.setAdult(!user.isAdult.get());
 //          binding.setUser(user);
         }
         public void onClick(View view){

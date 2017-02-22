@@ -39,9 +39,16 @@
         android:id="@+id/btn_twoway" />
 
     <Button
-        android:text="Button"
+        android:text="lambda"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button5" />
+        android:onClick="@{presenter.onClick}"
+        android:id="@+id/btn_lambda" />
+    <Button
+        android:text="animation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{presenter.onClick}"
+        android:id="@+id/btn_animation" />
 </LinearLayout>
 </layout>

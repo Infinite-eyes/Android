@@ -19,7 +19,8 @@
         <activity android:name=".SimpleActivity"></activity>
         <activity android:name=".ExpressionActivity"></activity>
         <activity android:name=".TwoWayActivity"></activity>
-
+        <activity android:name=".LambdaActivity"></activity>
+        <activity android:name=".AnimationActivity"></activity>
     </application>
 
 </manifest>

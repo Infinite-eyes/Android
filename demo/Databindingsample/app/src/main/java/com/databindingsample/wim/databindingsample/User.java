@@ -57,7 +57,7 @@ public class User  extends BaseObservable{
         return firstName + "" + lastName;
     }
 
-    public void setFired(boolean isAdult){
+    public void setAdult(boolean isAdult){
         this.isAdult.set(isAdult);
 //        notifyChange();
     }

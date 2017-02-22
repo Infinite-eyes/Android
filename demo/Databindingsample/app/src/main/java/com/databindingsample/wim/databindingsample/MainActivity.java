@@ -42,6 +42,14 @@ public class MainActivity extends AppCompatActivity {
                     intent  = new Intent(MainActivity.this,TwoWayActivity.class);
                     startActivity(intent);
                     break;
+                case R.id.btn_lambda:
+                    intent  = new Intent(MainActivity.this,LambdaActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.btn_animation:
+                    intent  = new Intent(MainActivity.this,AnimationActivity.class);
+                    startActivity(intent);
+                    break;
 
             }
         }

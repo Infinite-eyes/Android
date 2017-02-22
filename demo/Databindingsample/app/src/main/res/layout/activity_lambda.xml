@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="presenter"
+            type="com.databindingsample.wim.databindingsample.LambdaActivity.Presenter">
+        </variable>
+        <variable
+            name="user"
+            type="com.databindingsample.wim.databindingsample.User">
+        </variable>
+    </data>
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@{user.firstName}"
+        android:onClick="@{() -> presenter.onUserClick(user)}" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@{user.lastName}"
+        android:onClick="@{(v) -> presenter.onUserLongClick(user,context)}"
+        android:onFocusChange="@{(v,fcs) -> presenter.onFocusChange(user)}" />
+
+</LinearLayout>
+</layout>
