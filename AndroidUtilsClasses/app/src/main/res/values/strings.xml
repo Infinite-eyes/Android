@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AndroidUtilsClasses</string>
+
+    <string name="label_china_cmcc">中国移动</string>
+    <string name="label_china_unicom">中国联通</string>
+    <string name="label_china_telecommunications">中国电信</string>
+
 </resources>
