@@ -1,0 +1,166 @@
+apply plugin: 'com.android.application'
+apply plugin: com.example.plugin.MySecondPlugin
+
+
+android {
+//    compileSdkVersion 26
+//    buildToolsVersion "26.0.0"
+
+    compileSdkVersion rootProject.ext.complieSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.example.gradle.gradletest22"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+
+        debug {
+
+            buildConfigField "String", "API_URL", "\"this is debug version\""
+            buildConfigField "boolean", "LOG_HTTP_CALLS", "true"
+            resValue "string", "app_dasname", "Example DEBUG"
+
+            signingConfig signingConfigs.debug
+
+//            productFlavors.red.signingConfig signingConfigs.red
+//            productFlavors.blue.signingConfig signingConfigs.blue
+
+        }
+        release {
+            buildConfigField "String", "API_URL", "\"this is release version\""
+            buildConfigField "boolean", "LOG_HTTP_CALLS", "true"
+            resValue "string", "app_dasname", "release DEBUG"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+//        staging.initWith(buildTypes.debug)
+        staing {
+            applicationIdSuffix ".staging"
+            versionNameSuffix "-staging"
+            buildConfigField "String", "API_URL", "\"this is staing version\""
+        }
+
+    }
+
+
+
+    flavorDimensions "color", "prince"
+
+    productFlavors {
+        red {
+            dimension "color"
+            applicationId 'com.example.gradle.red'
+            versionCode 3
+        }
+        blue {
+            dimension "color"
+            applicationId "com.example.gradle.blue"
+            minSdkVersion 15
+            versionCode 4
+        }
+        free {
+            dimension "prince"
+        }
+        paid {
+            dimension "prince"
+        }
+    }
+
+//    flavorDimensions "color","prince"
+//
+//    productFlavors{
+//        red{
+//            flavorDimension "color"
+//            applicationId 'com.example.gradle.red'
+//            versionCode 3
+//        }
+//        blue{
+//            flavorDimension "color"
+//            applicationId "com.example.gradle.blue"
+//            minSdkVersion 15
+//            versionCode 4
+//        }
+//        free{
+//            flavorDimension "prince"
+//        }
+//        paid{
+//            flavorDimension "prince"
+//        }
+//    }
+
+//    filter variant
+    android.variantFilter { variant ->
+        if (variant.buildType.name.equals('release')) {
+            variant.getFlavors().each() { flavor ->
+                if (flavor.name.equals('blue')) {
+                    variant.setIgnore(true);
+                }
+            }
+        }
+    }
+
+    repositories {
+        flatDir {
+            dirs 'aars'
+        }
+    }
+
+
+
+    signingConfigs{
+        staging.initWith(signingConfigs.debug)
+//        release{
+//            storeFile file("release.keystore")
+//            storePassWord"secretpassword"
+//            keyAlias"gradleforandroid"
+//            keyPassword "secretpassword"
+//
+//        }
+    }
+
+
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+    compile(name: 'mylibrary-debug', ext: 'aar')
+//    compile project(':mylibrary')
+}
+
+
+ext {
+    local = 'Hello from build.gradle'
+}
+task printProperties << {
+    println local        // Local extra property
+    println propertiesFile        // Property from file
+    if (project.hasProperty('cmd')) {
+        println cmd        // Command line property
+    }
+}
+
+buildscript{
+    repositories{
+            maven{
+                url uri('/Users/chenweiming/localmaven')
+            }
+    }
+    dependencies{
+        classpath 'com.example.plugin:plugin:1.0.0'
+    }
+}
+
+apply plugin: 'com.example.plugin.gradle'
+
