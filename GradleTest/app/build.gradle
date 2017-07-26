@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
-apply plugin: com.example.plugin.MySecondPlugin
-
+//apply plugin: com.example.plugin.MySecondPlugin
+//apply plugin: com.example.plugin.MyCustomPlugin
 
 android {
 //    compileSdkVersion 26
